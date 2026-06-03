@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Art | Pidam Gallery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; background: #0a0d1a; }
+    .page-wrapper { position: relative; width: 100%; }
+    .page-wrapper::before { content: ''; display: block; padding-top: 56.25%; }
+    .page-wrapper img.bg {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center; display: block;
+    }
+    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .art-link {
+      position: absolute; display: block; cursor: pointer; border-radius: 4px;
+    }
+    .art-link:hover { background: rgba(255,255,255,0.08); }
+    .art-shinrou   { left: 31%;  top:  9%; width: 20%; height: 41%; }
+    .art-enshu     { left: 53%;  top:  9%; width: 20%; height: 41%; }
+    .art-tsukiyo   { left: 75%;  top:  9%; width: 20%; height: 41%; }
+    .art-hakuja    { left: 31%;  top: 52%; width: 20%; height: 41%; }
+    .art-susanoo   { left: 53%;  top: 52%; width: 20%; height: 41%; }
+    .art-ougonryu  { left: 75%;  top: 52%; width: 20%; height: 41%; }
+    .back-btn {
+      position: fixed; top: 1.2rem; left: 1.2rem; z-index: 100;
+      background: rgba(10,13,26,0.75);
+      border: 1px solid rgba(201,168,76,0.35); color: #c9a84c;
+      font-size: 0.78rem; letter-spacing: 0.15em;
+      padding: 0.45rem 1.1rem; border-radius: 9999px;
+      cursor: pointer; backdrop-filter: blur(6px);
+      text-decoration: none; font-family: sans-serif; transition: background 0.3s;
+    }
+    .back-btn:hover { background: rgba(201,168,76,0.15); }
+  </style>
+</head>
+<body>
+  <a class="back-btn" href="index.html">← トップへ</a>
+  <div class="page-wrapper">
+    <img class="bg" src="images/art.jpg" alt="AI Art - Pidam Gallery">
+    <div class="overlay">
+      <a class="art-link art-shinrou"  href="" target="_blank" aria-label="神狼"></a>
+      <a class="art-link art-enshu"    href="" target="_blank" aria-label="炎舞朱雀"></a>
+      <a class="art-link art-tsukiyo"  href="" target="_blank" aria-label="月夜九尾狐"></a>
+      <a class="art-link art-hakuja"   href="" target="_blank" aria-label="白蛇守護"></a>
+      <a class="art-link art-susanoo"  href="" target="_blank" aria-label="嵐のスサノオ"></a>
+      <a class="art-link art-ougonryu" href="" target="_blank" aria-label="黄金龍"></a>
+    </div>
+  </div>
+</body>
+</html>

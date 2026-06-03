@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>音楽・動画制作 | Pidam Gallery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; background: #0d1535; }
+
+    .page-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .page-wrapper::before {
+      content: '';
+      display: block;
+      padding-top: 56.25%;
+    }
+    .page-wrapper img.bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    /* YouTubeをサムネイル位置に重ねる */
+    .yt-wrap {
+      position: absolute;
+      left: 68%;
+      top: 15%;
+      width: 26%;
+      height: 78%;
+    }
+    .yt-wrap a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.2rem;
+      z-index: 100;
+      background: rgba(10,13,26,0.75);
+      border: 1px solid rgba(201,168,76,0.35);
+      color: #c9a84c;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      text-decoration: none;
+      font-family: sans-serif;
+      transition: background 0.3s;
+    }
+    .back-btn:hover { background: rgba(201,168,76,0.15); }
+  </style>
+</head>
+<body>
+
+  <a class="back-btn" href="activity.html">← 戻る</a>
+
+  <div class="page-wrapper">
+    <img class="bg" src="images/music.jpg" alt="音楽・動画制作 - Pidam Gallery">
+
+    <!-- YouTubeショートをページ内で再生 -->
+    <div class="yt-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/9g7g36aq9g0"
+        title="挑戦の先に｜前を向きたい人へ"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        style="width:100%;height:100%;border:none;border-radius:4px;">
+      </iframe>
+    </div>
+  </div>
+
+</body>
+</html>

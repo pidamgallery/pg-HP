@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop | Pidam Gallery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; background: #0a0d1a; }
+    .page-wrapper { position: relative; width: 100%; }
+    .page-wrapper::before { content: ''; display: block; padding-top: 56.25%; }
+    .page-wrapper img.bg {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center; display: block;
+    }
+    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .btn-link {
+      position: absolute; display: block; cursor: pointer; border-radius: 9999px;
+      /* デバッグ: background: rgba(255,0,0,0.3); */
+    }
+    .btn-link:hover { background: rgba(255,255,255,0.1); }
+    /* BOOTHを見る  */
+    .btn-booth   { left: 11%; top: 36%; width: 18%; height: 7%; }
+    /* メルカリを見る */
+    .btn-mercari { left: 11%; top: 64%; width: 18%; height: 7%; }
+    .back-btn {
+      position: fixed; top: 1.2rem; left: 1.2rem; z-index: 100;
+      background: rgba(10,13,26,0.75);
+      border: 1px solid rgba(201,168,76,0.35); color: #c9a84c;
+      font-size: 0.78rem; letter-spacing: 0.15em;
+      padding: 0.45rem 1.1rem; border-radius: 9999px;
+      cursor: pointer; backdrop-filter: blur(6px);
+      text-decoration: none; font-family: sans-serif; transition: background 0.3s;
+    }
+    .back-btn:hover { background: rgba(201,168,76,0.15); }
+  </style>
+</head>
+<body>
+  <a class="back-btn" href="activity.html">← 戻る</a>
+  <div class="page-wrapper">
+    <img class="bg" src="images/Shop.jpg" alt="Shop - Pidam Gallery">
+    <div class="overlay">
+      <!-- BOOTHを見る: href="" にBOOTHのURLを入れる -->
+      <a class="btn-link btn-booth"   href="https://pidam-gallery.booth.pm/" target="_blank" aria-label="BOOTHを見る"></a>
+      <!-- メルカリを見る: href="" にメルカリのURLを入れる -->
+      <a class="btn-link btn-mercari" href="https://jp.mercari.com/user/profile/968855455" target="_blank" aria-label="メルカリを見る"></a>
+    </div>
+  </div>
+</body>
+</html>
