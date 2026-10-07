@@ -26,6 +26,40 @@
       display: block;
     }
 
+    .image-link {
+      position: absolute;
+      z-index: 3;
+      display: block;
+    }
+    .consultation-link {
+      left: 27%;
+      top: 87%;
+      width: 46%;
+      height: 10%;
+      border-radius: 9999px;
+    }
+    .consultation-link:hover { background: rgba(255,255,255,0.12); }
+    .email-consultation {
+      display: block;
+      padding: 0.7rem 1rem;
+      background: #eef4fb;
+      color: #0e55ad;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+      font-size: clamp(0.78rem, 1.05vw, 1rem);
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+    .email-consultation:hover { text-decoration: underline; }
+    .intro-detail-link {
+      left: 8.5%;
+      top: 74%;
+      width: 26%;
+      height: 8%;
+    }
+    .intro-detail-link:hover { background: rgba(255,255,255,0.12); }
+    .full-image-link { inset: 0; }
+
     .back-btn {
       position: fixed;
       top: 1.2rem;
@@ -53,7 +87,8 @@
 
   <!-- 1枚目: company.jpg -->
   <div class="page-block">
-    <img class="bg" src="images/company.jpg" alt="法人向けサポート 1 - Pidam Gallery">
+    <img class="bg" src="images/company.jpg" alt="個別伴走サポート 導入 - Pidam Gallery">
+    <a class="image-link intro-detail-link" href="#individual-support" aria-label="個別伴走サポートの詳しい内容はこちら"></a>
   </div>
 
   <!-- 2枚目: company2.jpg -->
@@ -62,8 +97,21 @@
   </div>
 
   <!-- 3枚目: company3.jpg -->
+  <div class="page-block" id="individual-support">
+    <img class="bg" src="images/company3.jpg" alt="個別伴走サポート 詳細・料金・比較表 - Pidam Gallery">
+    <a class="image-link consultation-link" href="#company-contact" aria-label="個別伴走サポートのお問い合わせはこちら"></a>
+  </div>
+  <a class="email-consultation" href="mailto:soyopin@kcn.jp">メールでのご相談はこちら</a>
+
+  <!-- 4枚目: company4.jpg -->
+  <div class="page-block" id="company-contact">
+    <img class="bg" src="images/company4.jpg" alt="個別伴走サポート こんなお悩みありませんか - Pidam Gallery">
+  </div>
+
+  <!-- 5枚目: その他サポート -->
   <div class="page-block">
-    <img class="bg" src="images/company3.jpg" alt="法人向けサポート 3 - Pidam Gallery">
+    <img class="bg" src="images/other_support.jpg" alt="その他サポート - Pidam Gallery">
+    <a class="image-link full-image-link" href="other_support.html" aria-label="その他サポートのページを見る"></a>
   </div>
 
 </body>

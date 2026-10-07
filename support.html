@@ -47,21 +47,47 @@
     }
     .btn-qr:hover { background: rgba(255,255,255,0.08); }
 
-    /* その他サポート: 画像に既にボタン枠があるため透明リンク */
-    .btn-other {
+    .service-menu {
       position: absolute;
-      display: block;
-      cursor: pointer;
-      border-radius: 9999px;
-      /* デバッグ: background: rgba(255,0,0,0.3); */
+      left: 8.5%;
+      top: 25%;
+      z-index: 2;
+      width: 38%;
+      height: 65%;
+      padding: 1.1%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6vw;
+      background: #051440;
+      border-radius: 1.3vw;
     }
-    .btn-other:hover { background: rgba(255,255,255,0.08); }
+    .service-menu a {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.92);
+      border-radius: 9999px;
+      text-align: center;
+      text-decoration: none;
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+    }
+    .service-menu a:hover { background: rgba(255,255,255,0.1); }
+    .service-menu strong {
+      font-size: clamp(0.75rem, 1.55vw, 1.4rem);
+      font-weight: 500;
+      line-height: 1.15;
+    }
+    .service-menu span {
+      margin-top: 0.2em;
+      font-size: clamp(0.7rem, 1.15vw, 1rem);
+      line-height: 1.15;
+    }
 
     /* ボタン位置 (%) */
-    .btn-beginner { left: 10%; top: 28%; width: 25%; height: 8%; }  /* 初心者向け講座 */
-    .btn-houjin   { left: 10%; top: 58%; width: 25%; height: 8%; }  /* 法人向けサポート */
-    .btn-other    { left: 10%; top: 82%; width: 25%; height: 8%; }  /* その他サポート */
-    .btn-qr       { left: 51%; top: 74%; width: 7%;  height: 13%; } /* QRコード */
+    .btn-qr { left: 51%; top: 74%; width: 7%; height: 13%; } /* QRコード */
 
     /* トップへ戻る */
     .back-btn {
@@ -89,19 +115,29 @@
 
   <a class="back-btn" href="index.html">← トップへ</a>
 
-  <div class="page-wrapper">
+  <div class="page-wrapper" id="contact">
     <img class="bg" src="images/support.jpg" alt="AI Support - Pidam Gallery">
 
     <div class="overlay">
 
-      <!-- 初心者向け講座 -->
-      <a class="btn-link btn-beginner" href="beginner.html" aria-label="初心者向け講座"></a>
-
-      <!-- 法人向けサポート -->
-      <a class="btn-link btn-houjin" href="company.html" aria-label="法人向けサポート"></a>
-
-      <!-- その他サポート: 新規ページへ -->
-      <a class="btn-other" href="other_support.html" aria-label="その他サポート"></a>
+      <nav class="service-menu" aria-label="AIサポートメニュー">
+        <a href="beginner.html">
+          <strong>AI初心者講座</strong>
+          <span>複数人で基本を学ぶ</span>
+        </a>
+        <a href="beginner.html">
+          <strong>はじめてのAIサポート</strong>
+          <span>1対1で相談・練習</span>
+        </a>
+        <a href="company.html">
+          <strong>個別伴走サポート</strong>
+          <span>一緒に作って実装する</span>
+        </a>
+        <a href="other_support.html">
+          <strong>その他サポート</strong>
+          <span>画像・名刺・LPなどの制作相談</span>
+        </a>
+      </nav>
 
       <!-- QRコード（LINE相談）: リンク先を href="" に入れる -->
       <a class="btn-qr" href="" target="_blank" aria-label="LINE相談はこちら"></a>
