@@ -91,6 +91,19 @@ body > .sample-art.viewport-art {
  max-width: calc(100% - 80px); padding: 0; z-index: 101;
 }
 </style>
+
+<style id="mobile-complete-screen">
+/* Phone-only: preserve artwork proportions and keep browser controls in view. */
+@media (max-width: 767px), (max-width: 1100px) and (pointer: coarse) {
+html {scroll-snap-type:y proximity; scroll-padding:0;} html,body {height:auto; min-height:100svh; overflow:visible;}
+body {display:block;}
+.layout-navigation .back-btn, .layout-navigation .nav-button, .back-btn, .back-button {min-height:24px; height:auto; padding:3px 8px; font-size:10px; line-height:1.4;}
+.page-wrapper > .layout-navigation, .sample-art > .layout-navigation {position:absolute; top:4px; left:4px; right:auto; max-width:calc(100% - 8px); padding:0; gap:8px;}
+.back-button {top:0;}
+body > .sample-art.viewport-art { position:relative; width:min(100%, calc((100svh - 0px) * 16 / 9)); height:auto; min-height:0; max-width:100%; max-height:none; aspect-ratio:16 / 9; margin:0 auto; padding:0; }
+body > .sample-art.viewport-art > img { display:block; position:static; width:100%; height:auto; max-width:100%; max-height:none; object-fit:contain; }
+}
+</style>
 </head><body><main class="sample-art viewport-art" style="--art-ratio: 1.7777777777777777"><img src="images/LP_sample.jpg" alt="HP・LP制作のLPサンプル一覧"><a class="sample-link sui" href="https://pidamgallery.github.io/lp-sample-sui/" target="_blank" rel="noopener noreferrer" aria-label="美容室Sui サンプルLP（別タブで開きます）"></a>
 <a class="sample-link kakurega" href="https://pidamgallery.github.io/lp-sample-kakurega/" target="_blank" rel="noopener noreferrer" aria-label="喫茶 隠れ家 サンプルLP（別タブで開きます）"></a>
 <a class="sample-link shinrou" href="https://pidamgallery.github.io/lp-sample-shinrou/" target="_blank" rel="noopener noreferrer" aria-label="神狼運輸 サンプルLP（別タブで開きます）"></a><div class="layout-navigation"><a class="back-btn" href="index.html">← トップページへ戻る</a></div></main>

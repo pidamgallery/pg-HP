@@ -57,6 +57,27 @@ a:focus-visible { outline: 3px solid #ddc791; outline-offset: 3px; }
  .business-card-sheet > .layout-navigation { left: 12px; gap: 8px; }
 }
 </style>
+
+<style id="mobile-complete-screen">
+/* Phone-only: preserve artwork proportions and keep browser controls in view. */
+@media (max-width: 767px), (max-width: 1100px) and (pointer: coarse) {
+html {scroll-snap-type:y proximity; scroll-padding:0;} html,body {height:auto; min-height:100svh; overflow:visible;}
+body {display:block;}
+.layout-navigation .back-btn, .layout-navigation .nav-button, .back-btn, .back-button {min-height:24px; height:auto; padding:3px 8px; font-size:10px; line-height:1.4;}
+.page-wrapper > .layout-navigation, .sample-art > .layout-navigation {position:absolute; top:4px; left:4px; right:auto; max-width:calc(100% - 8px); padding:0; gap:8px;}
+.back-button {top:0;}
+.design-images > .viewport-art {width:100%; height:100svh; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:center; scroll-snap-align:start;}
+.design-images > .viewport-art:first-child {min-height:0;}
+.design-images .viewport-art img {flex:none; width:auto; height:auto; max-width:100%; max-height:100svh; object-fit:contain;}
+.design-images .business-card-sheet img {max-height:calc(100svh - 40px);}
+.business-card-sheet > .layout-navigation {position:static; width:100%; height:40px; justify-content:center; padding:4px 8px; gap:8px;}
+@media (orientation:portrait) {
+ .design-images > .viewport-art {height:auto; min-height:0; justify-content:flex-start;}
+ .design-images > .viewport-art img {width:100%; max-height:none;}
+ .design-images .business-card-sheet > .layout-navigation {height:auto; min-height:40px; flex-wrap:wrap;}
+}
+}
+</style>
 </head>
 <body id="page-top">
   

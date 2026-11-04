@@ -118,6 +118,19 @@ body:has(.facts-sheet) .viewport-art {
  }
 }
 </style>
+
+<style id="mobile-complete-screen">
+/* Phone-only: preserve artwork proportions and keep browser controls in view. */
+@media (max-width: 767px), (max-width: 1100px) and (pointer: coarse) {
+html {scroll-snap-type:y proximity; scroll-padding:0;} html,body {height:auto; min-height:100svh; overflow:visible;}
+body {display:block;}
+.layout-navigation .back-btn, .layout-navigation .nav-button, .back-btn, .back-button {min-height:24px; height:auto; padding:3px 8px; font-size:10px; line-height:1.4;}
+.page-wrapper > .layout-navigation, .sample-art > .layout-navigation {position:absolute; top:4px; left:4px; right:auto; max-width:calc(100% - 8px); padding:0; gap:8px;}
+.back-button {top:0;}
+body > .page-wrapper { position:relative; width:min(100%, calc((100svh - 0px) * 1.92)); height:auto; min-height:0; max-width:100%; max-height:none; aspect-ratio:1.92; margin:0 auto; padding:0; }
+body > .page-wrapper > img { display:block; position:static; width:100%; height:auto; max-width:100%; max-height:none; object-fit:contain; }
+}
+</style>
 </head>
 <body>
 
