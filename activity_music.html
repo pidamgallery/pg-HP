@@ -42,6 +42,15 @@ body {display:block;}
 .screen > .page-wrapper > img { display:block; position:static; width:100%; height:auto; max-width:100%; max-height:none; object-fit:contain; }
 }
 </style>
+<style id="mobile-portrait-natural-flow">
+/* Portrait phones follow the image heights with no filler between sheets. */
+@media (max-width: 767px) and (orientation: portrait),
+       (max-width: 1100px) and (pointer: coarse) and (orientation: portrait) {
+ html { scroll-snap-type: none; }
+ .screen { display: block; height: auto; min-height: 0; scroll-snap-align: none; }
+ .screen > .page-wrapper { width: 100%; height: auto; min-height: 0; margin: 0; }
+}
+</style>
 </head>
 <body>
 <section class="screen" aria-label="音楽・動画制作">
