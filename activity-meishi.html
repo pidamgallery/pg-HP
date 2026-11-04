@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>名刺制作の実績 | Pidam Gallery</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; background: #ffffff; }
+
+    .page-wrapper {
+      width: 100%;
+    }
+    .page-wrapper img.bg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.2rem;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(0,50,120,0.25);
+      color: #1a3a6b;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      padding: 0.45rem 1.1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      text-decoration: none;
+      font-family: sans-serif;
+      transition: background 0.3s;
+    }
+    .back-btn:hover { background: rgba(0,50,120,0.1); }
+  
+/* Responsive layout: the artwork remains intact; navigation takes its own space. */
+:root { --layout-nav: 68px; --layout-ratio: 1.7777777777777777; }
+html { scroll-behavior: auto; }
+body { min-width: 0; }
+.page-wrapper, .viewport-art, .page-block.viewport-art {
+ position: relative;
+ width: min(100%, calc((100vh - var(--layout-nav)) * var(--layout-ratio)));
+ width: min(100%, calc((100svh - var(--layout-nav)) * var(--layout-ratio)));
+ margin-inline: auto;
+}
+.page-wrapper::before, .page-block::before { display: none; }
+.page-wrapper img.bg, .viewport-art img, .page-block.viewport-art img.bg, .design-images .viewport-art img {
+ position: static; display: block; width: 100%; height: auto; max-height: none;
+}
+.design-images { display: flex; flex-direction: column; }
+.layout-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px; }
+.layout-navigation .page-nav, .layout-navigation .return-row { display: contents; }
+.layout-navigation .back-btn, .layout-navigation .nav-button {
+ position: static; display: inline-flex; align-items: center; justify-content: center;
+ margin: 0; min-height: 44px; max-width: 100%; padding: 10px 16px;
+ font-size: 14px; line-height: 1.5; letter-spacing: normal; white-space: normal;
+ overflow-wrap: anywhere; text-align: center;
+}
+.email-consultation { font-size: 16px; }
+body:has(.facts-sheet) .viewport-art { width: min(100%, calc((100vh - var(--layout-nav)) * 16 / 9), calc((100vh - var(--layout-nav) - var(--layout-facts, 44px)) * 1920 / 936)); width: min(100%, calc((100svh - var(--layout-nav)) * 16 / 9), calc((100svh - var(--layout-nav) - var(--layout-facts, 44px)) * 1920 / 936)); }
+.facts-footer { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px 16px; padding: 8px; }
+.facts-footer .footer-detail { display: inline; font-size: 12px; }
+a:focus-visible { outline: 3px solid #b49343; outline-offset: 2px; }
+@media (max-width: 600px) {
+ /* Prioritise image width and allow vertical scrolling over further shrinking. */
+ .page-wrapper, .viewport-art, .page-block.viewport-art, body:has(.facts-sheet) .viewport-art { width: 100%; }
+ .layout-navigation { gap: 8px; }
+ .facts-footer { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px 16px; padding: 8px; }
+ .facts-footer .footer-detail { display: inline; font-size: 12px; }
+ .compact-brand > span { font-size: 16px; }
+}
+
+</style>
+
+<style id="full-width-layout">
+/* Artwork fills the content width; tall pages scroll without cropping. */
+html, body { width: 100%; min-width: 0; margin: 0; padding: 0; }
+.page-wrapper, .viewport-art, .page-block.viewport-art,
+body:has(.facts-sheet) .viewport-art {
+ width: 100%; max-width: none; height: auto; margin-inline: 0;
+}
+.page-wrapper img.bg, .viewport-art img, .page-block.viewport-art img.bg,
+.design-images .viewport-art img {
+ display: block; position: static; width: 100%; height: auto;
+ max-width: 100%; max-height: none;
+}
+/* Show the original image footer in full, without a second replacement footer. */
+.facts-content { aspect-ratio: auto; overflow: visible; }
+.facts-footer { display: none; }
+</style>
+<style id="meishi-viewport-fit">
+/* Keep the complete 1920 x 1000 artwork and navigation in the same frame. */
+.page-wrapper > .layout-navigation {
+ position: absolute; left: 1%; top: 1%; padding: 0; z-index: 5;
+}
+@media (min-width: 768px) {
+ html, body { margin: 0; padding: 0; min-width: 0; }
+ body { height: 100vh; height: 100dvh; display: grid; place-items: center; }
+ .page-wrapper {
+  width: min(100%, calc(100vh * 1.92));
+  width: min(100%, calc(100dvh * 1.92));
+  aspect-ratio: 1920 / 1000; height: auto;
+  max-width: 100%; max-height: 100%; margin: 0; padding: 0;
+  overflow: visible;
+ }
+ .page-wrapper img.bg {
+  display: block; width: 100%; height: 100%; max-width: 100%; max-height: 100%;
+  object-fit: contain; object-position: center;
+ }
+}
+@media (max-width: 767px) {
+ .page-wrapper > .layout-navigation .back-btn {
+  min-height: 22px; padding: 2px 8px; font-size: 10px; line-height: 1.4;
+ }
+}
+</style>
+</head>
+<body>
+
+  
+
+  <div class="page-wrapper">
+    <img class="bg" src="images/名刺制作2.jpg" alt="名刺制作の実績 - Pidam Gallery">
+<div class="layout-navigation"><a class="back-btn" href="activity.html">← 活動内容一覧に戻る</a></div>
+  </div>
+
+
+<script>
+(()=>{const nav=document.querySelector('.layout-navigation');
+ const measure=()=>{document.documentElement.style.setProperty('--layout-nav',Math.ceil(nav.getBoundingClientRect().height)+'px');
+ const facts=document.querySelector('.facts-footer');if(facts)document.documentElement.style.setProperty('--layout-facts',Math.ceil(facts.getBoundingClientRect().height)+'px');};
+ const observer=new ResizeObserver(measure);observer.observe(nav);const facts=document.querySelector('.facts-footer');if(facts)observer.observe(facts);measure();})();
+</script>
+</body>
+</html>

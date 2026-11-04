@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>法人向けサポート | Pidam Gallery</title>
+  <title>個別伴走サポート | Pidam Gallery</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; background: #0a0d1a; }
@@ -79,40 +79,155 @@
       transition: background 0.3s;
     }
     .back-btn:hover { background: rgba(201,168,76,0.15); }
-  </style>
-</head>
-<body>
+    /* Display every supplied image at its natural aspect ratio. */
+    .page-block::before { display: none; }
+    .page-block img.bg { position: static; height: auto; }
+    .back-btn { max-width: calc(100% - 24px); top: 12px; left: 12px; font-size: 14px; letter-spacing: normal; }
+    a:focus-visible { outline: 3px solid #ddc791; outline-offset: 3px; }
+  .back-btn { position: relative; display: inline-flex; top: auto; left: auto; margin: 12px; max-width: calc(100% - 24px); align-items: center; min-height: 44px; }
 
-  <a class="back-btn" href="support.html">← 戻る</a>
+  /* Fit the complete artwork within both viewport dimensions. */
+  .viewport-art { position: relative; width: min(100%, calc(100vh * var(--art-ratio))); width: min(100%, calc(100svh * var(--art-ratio))); margin-inline: auto; }
+  .viewport-art img, .page-block.viewport-art img.bg, .design-images .viewport-art img { position: static; display: block; width: 100%; height: auto; max-height: none; }
+  .design-images { justify-items: center; }
+  
+/* Responsive layout: the artwork remains intact; navigation takes its own space. */
+:root { --layout-nav: 68px; --layout-ratio: 1.7777777777777777; }
+html { scroll-behavior: auto; }
+body { min-width: 0; }
+.page-wrapper, .viewport-art, .page-block.viewport-art {
+ position: relative;
+ width: min(100%, calc((100vh - var(--layout-nav)) * var(--layout-ratio)));
+ width: min(100%, calc((100svh - var(--layout-nav)) * var(--layout-ratio)));
+ margin-inline: auto;
+}
+.page-wrapper::before, .page-block::before { display: none; }
+.page-wrapper img.bg, .viewport-art img, .page-block.viewport-art img.bg, .design-images .viewport-art img {
+ position: static; display: block; width: 100%; height: auto; max-height: none;
+}
+.design-images { display: flex; flex-direction: column; }
+.layout-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px; }
+.layout-navigation .page-nav, .layout-navigation .return-row { display: contents; }
+.layout-navigation .back-btn, .layout-navigation .nav-button {
+ position: static; display: inline-flex; align-items: center; justify-content: center;
+ margin: 0; min-height: 44px; max-width: 100%; padding: 10px 16px;
+ font-size: 14px; line-height: 1.5; letter-spacing: normal; white-space: normal;
+ overflow-wrap: anywhere; text-align: center;
+}
+.email-consultation { font-size: 16px; }
+body:has(.facts-sheet) .viewport-art { width: min(100%, calc((100vh - var(--layout-nav)) * 16 / 9), calc((100vh - var(--layout-nav) - var(--layout-facts, 44px)) * 1920 / 936)); width: min(100%, calc((100svh - var(--layout-nav)) * 16 / 9), calc((100svh - var(--layout-nav) - var(--layout-facts, 44px)) * 1920 / 936)); }
+.facts-footer { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px 16px; padding: 8px; }
+.facts-footer .footer-detail { display: inline; font-size: 12px; }
+a:focus-visible { outline: 3px solid #b49343; outline-offset: 2px; }
+@media (max-width: 600px) {
+ /* Prioritise image width and allow vertical scrolling over further shrinking. */
+ .page-wrapper, .viewport-art, .page-block.viewport-art, body:has(.facts-sheet) .viewport-art { width: 100%; }
+ .layout-navigation { gap: 8px; }
+ .facts-footer { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px 16px; padding: 8px; }
+ .facts-footer .footer-detail { display: inline; font-size: 12px; }
+ .compact-brand > span { font-size: 16px; }
+}
+
+</style>
+
+<style id="full-width-layout">
+/* Artwork fills the content width; tall pages scroll without cropping. */
+html, body { width: 100%; min-width: 0; margin: 0; padding: 0; }
+.page-wrapper, .viewport-art, .page-block.viewport-art,
+body:has(.facts-sheet) .viewport-art {
+ width: 100%; max-width: none; height: auto; margin-inline: 0;
+}
+.page-wrapper img.bg, .viewport-art img, .page-block.viewport-art img.bg,
+.design-images .viewport-art img {
+ display: block; position: static; width: 100%; height: auto;
+ max-width: 100%; max-height: none;
+}
+/* Show the original image footer in full, without a second replacement footer. */
+.facts-content { aspect-ratio: auto; overflow: visible; }
+.facts-footer { display: none; }
+</style>
+
+<style id="companion-desktop-fit">
+/* Fit the original 1920 x 1000 artwork without cropping or distortion. */
+.companion-screen { display: contents; }
+@media (min-width: 768px) {
+ html { scroll-snap-type: y proximity; }
+ html, body { background: #eef4fb; overflow: visible; }
+ .companion-screen {
+  display: grid; place-items: center;
+  width: 100%; height: 100vh; height: 100dvh;
+  padding: 0; margin: 0; min-width: 0;
+  overflow: visible; scroll-snap-align: start;
+ }
+ .page-block.viewport-art {
+  position: relative; width: min(100%, calc(100vh * 1.92));
+  width: min(100%, calc(100dvh * 1.92));
+  height: auto; aspect-ratio: 1920 / 1000;
+  max-width: 100%; max-height: 100%;
+  margin: 0; padding: 0; overflow: visible;
+ }
+ .page-block.viewport-art img.bg {
+  display: block; position: static; width: 100%; height: 100%;
+  max-width: 100%; max-height: 100%;
+  object-fit: contain; object-position: center;
+ }
+ #company-contact > .layout-navigation {
+  position: absolute; left: 1.5%; bottom: 1.5%; z-index: 5;
+  display: flex; flex-wrap: nowrap; gap: 10px; padding: 0;
+  max-width: 96%;
+ }
+ #company-contact > .layout-navigation .back-btn {
+  min-height: 36px; padding: 6px 12px; font-size: 13px;
+  white-space: nowrap; background: #0a0d1a;
+ }
+}
+</style>
+</head>
+<body id="page-top">
+
+  
 
   <!-- 1枚目: company.jpg -->
-  <div class="page-block">
+  <section class="companion-screen">
+<div class="page-block viewport-art" style="--art-ratio: 1.92">
     <img class="bg" src="images/company.jpg" alt="個別伴走サポート 導入 - Pidam Gallery">
     <a class="image-link intro-detail-link" href="#individual-support" aria-label="個別伴走サポートの詳しい内容はこちら"></a>
   </div>
+</section>
 
   <!-- 2枚目: company2.jpg -->
-  <div class="page-block">
+  <section class="companion-screen">
+<div class="page-block viewport-art" style="--art-ratio: 1.92">
     <img class="bg" src="images/company2.jpg" alt="法人向けサポート 2 - Pidam Gallery">
   </div>
+</section>
 
   <!-- 3枚目: company3.jpg -->
-  <div class="page-block" id="individual-support">
+  <section class="companion-screen">
+<div class="page-block viewport-art" id="individual-support" style="--art-ratio: 1.92">
     <img class="bg" src="images/company3.jpg" alt="個別伴走サポート 詳細・料金・比較表 - Pidam Gallery">
     <a class="image-link consultation-link" href="#company-contact" aria-label="個別伴走サポートのお問い合わせはこちら"></a>
   </div>
-  <a class="email-consultation" href="mailto:soyopin@kcn.jp">メールでのご相談はこちら</a>
+</section>
 
   <!-- 4枚目: company4.jpg -->
-  <div class="page-block" id="company-contact">
+  <section class="companion-screen">
+<div class="page-block viewport-art" id="company-contact" style="--art-ratio: 1.92">
     <img class="bg" src="images/company4.jpg" alt="個別伴走サポート こんなお悩みありませんか - Pidam Gallery">
+<div class="layout-navigation"><a class="back-btn" href="support.html">← AI Supportへ戻る</a>
+<a class="back-btn to-top" href="#page-top">↑ このページの先頭へ</a></div>
   </div>
+</section>
 
-  <!-- 5枚目: その他サポート -->
-  <div class="page-block">
-    <img class="bg" src="images/other_support.jpg" alt="その他サポート - Pidam Gallery">
-    <a class="image-link full-image-link" href="other_support.html" aria-label="その他サポートのページを見る"></a>
-  </div>
+  
 
+
+
+<script>
+(()=>{const nav=document.querySelector('.layout-navigation');
+ const measure=()=>{document.documentElement.style.setProperty('--layout-nav',Math.ceil(nav.getBoundingClientRect().height)+'px');
+ const facts=document.querySelector('.facts-footer');if(facts)document.documentElement.style.setProperty('--layout-facts',Math.ceil(facts.getBoundingClientRect().height)+'px');};
+ const observer=new ResizeObserver(measure);observer.observe(nav);const facts=document.querySelector('.facts-footer');if(facts)observer.observe(facts);measure();})();
+</script>
 </body>
 </html>

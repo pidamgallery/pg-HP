@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>デザイン制作・名刺制作実績 | Pidam Gallery</title>
+  
+
+
+
+<style id="design-complete-images">
+* { box-sizing: border-box; }
+html, body { width: 100%; min-width: 0; margin: 0; padding: 0; background: #0a0d1a; }
+body { color: #f2f1ee; font-family: "Yu Gothic", Meiryo, sans-serif; }
+.design-images { display: flex; flex-direction: column; gap: 24px; padding: 0; }
+.design-images .viewport-art {
+ flex: none; width: 100%;
+ max-width: none; margin-inline: 0; scroll-margin-top: 0;
+}
+.design-images img {
+ display: block; position: static; width: 100%; max-width: 100%;
+ height: auto; max-height: none; object-fit: contain; object-position: center;
+}
+.layout-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px; }
+.page-nav { display: contents; }
+.nav-button {
+ position: static; display: inline-flex; align-items: center; justify-content: center;
+ min-height: 44px; max-width: 100%; padding: 10px 16px;
+ border: 1px solid #c9a84c77; border-radius: 999px; color: #ddc791;
+ background: #0a0d1a; font: 14px/1.5 sans-serif; text-decoration: none;
+ overflow-wrap: anywhere; text-align: center;
+}
+.nav-button:hover { background: #c9a84c15; }
+a:focus-visible { outline: 3px solid #ddc791; outline-offset: 3px; }
+</style>
+<style id="design-first-screen">
+/* Keep the following artwork below the first screen. */
+.design-images > .viewport-art:first-child { min-height: 100vh; min-height: 100dvh; }
+</style>
+<style id="business-card-one-screen">
+.design-images { gap: 0; }
+.design-images .business-card-sheet {
+ position: relative; display: flex; flex-direction: column; align-items: center;
+ justify-content: flex-start; height: 100vh; height: 100dvh; min-height: 0;
+ background: #fff;
+}
+.design-images .business-card-sheet img {
+ flex: none; width: auto; height: auto; max-width: 100%;
+ max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px);
+ object-fit: contain;
+}
+.business-card-sheet > .layout-navigation {
+ position: absolute; left: 40px; right: 12px; bottom: 8px;
+ padding: 0; z-index: 2;
+}
+@media (max-width: 600px) {
+ .business-card-sheet > .layout-navigation { left: 12px; gap: 8px; }
+}
+</style>
+</head>
+<body id="page-top">
+  
+  <main class="design-images" aria-label="デザイン制作のご紹介と名刺制作実績">
+    <div class="viewport-art" style="--art-ratio: 2"><img src="images/デザイン制作_横長.png" alt="AIを活用したデザイン制作。名刺・チラシ・SNS画像などの制作をご紹介。"></div>
+    <div class="viewport-art business-card-sheet" style="--art-ratio: 1.7777777777777777"><img src="images/名刺制作.jpg" alt="ご依頼を受けて制作した2名様の名刺の実績。">
+<div class="layout-navigation"><nav class="page-nav" aria-label="トップページへの移動"><a class="nav-button" href="index.html">← トップページへ戻る</a></nav>
+<nav class="page-nav" aria-label="ページ内の移動"><a class="nav-button" href="#page-top">↑ このページの先頭へ</a></nav></div></div>
+  </main>
+  
+
+
+<script>
+(()=>{const nav=document.querySelector('.layout-navigation');
+ const measure=()=>{document.documentElement.style.setProperty('--layout-nav',Math.ceil(nav.getBoundingClientRect().height)+'px');
+ const facts=document.querySelector('.facts-footer');if(facts)document.documentElement.style.setProperty('--layout-facts',Math.ceil(facts.getBoundingClientRect().height)+'px');};
+ const observer=new ResizeObserver(measure);observer.observe(nav);const facts=document.querySelector('.facts-footer');if(facts)observer.observe(facts);measure();})();
+</script>
+</body>
+</html>

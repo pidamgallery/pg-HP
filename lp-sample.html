@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>HP・LP制作 サンプル | Pidam Gallery</title><style>
+* { margin: 0; padding: 0; box-sizing: border-box; } html, body { width: 100%; background: #0a0d1a; } img { display: block; width: 100%; height: auto; }
+.back-btn { position: fixed; top: 12px; left: 12px; z-index: 100; padding: 10px 16px; border: 1px solid #c9a84c77; border-radius: 999px; background: #0a0d1aeb; color: #ddc791; font: 14px/1.5 sans-serif; text-decoration: none; } a:focus-visible { outline: 3px solid #ddc791; outline-offset: 3px; }
+.back-btn { position: relative; display: inline-flex; top: auto; left: auto; margin: 12px; max-width: calc(100% - 24px); align-items: center; min-height: 44px; }
+.sample-art { position: relative; }
+ .sample-link { position: absolute; top: 27.4%; height: 68%; border-radius: 12px; }
+ .sample-link.sui { left: 7.1875%; width: 28.2292%; }
+ .sample-link.kakurega { left: 36.40625%; width: 27.1354%; }
+ .sample-link.shinrou { left: 64.5833%; width: 28.28125%; }
+ 
+  /* Fit the complete artwork within both viewport dimensions. */
+  .viewport-art { position: relative; width: min(100%, calc(100vh * var(--art-ratio))); width: min(100%, calc(100svh * var(--art-ratio))); margin-inline: auto; }
+  .viewport-art img, .page-block.viewport-art img.bg, .design-images .viewport-art img { position: static; display: block; width: 100%; height: auto; max-height: none; }
+  .design-images { justify-items: center; }
+  
+/* Responsive layout: the artwork remains intact; navigation takes its own space. */
+:root { --layout-nav: 68px; --layout-ratio: 1.7777777777777777; }
+html { scroll-behavior: auto; }
+body { min-width: 0; }
+.page-wrapper, .viewport-art, .page-block.viewport-art {
+ position: relative;
+ width: min(100%, calc((100vh - var(--layout-nav)) * var(--layout-ratio)));
+ width: min(100%, calc((100svh - var(--layout-nav)) * var(--layout-ratio)));
+ margin-inline: auto;
+}
+.page-wrapper::before, .page-block::before { display: none; }
+.page-wrapper img.bg, .viewport-art img, .page-block.viewport-art img.bg, .design-images .viewport-art img {
+ position: static; display: block; width: 100%; height: auto; max-height: none;
+}
+.design-images { display: flex; flex-direction: column; }
+.layout-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px; }
+.layout-navigation .page-nav, .layout-navigation .return-row { display: contents; }
+.layout-navigation .back-btn, .layout-navigation .nav-button {
+ position: static; display: inline-flex; align-items: center; justify-content: center;
+ margin: 0; min-height: 44px; max-width: 100%; padding: 10px 16px;
+ font-size: 14px; line-height: 1.5; letter-spacing: normal; white-space: normal;
+ overflow-wrap: anywhere; text-align: center;
+}
+.email-consultation { font-size: 16px; }
+body:has(.facts-sheet) .viewport-art { width: min(100%, calc((100vh - var(--layout-nav)) * 16 / 9), calc((100vh - var(--layout-nav) - var(--layout-facts, 44px)) * 1920 / 936)); width: min(100%, calc((100svh - var(--layout-nav)) * 16 / 9), calc((100svh - var(--layout-nav) - var(--layout-facts, 44px)) * 1920 / 936)); }
+.facts-footer { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px 16px; padding: 8px; }
+.facts-footer .footer-detail { display: inline; font-size: 12px; }
+a:focus-visible { outline: 3px solid #b49343; outline-offset: 2px; }
+@media (max-width: 600px) {
+ /* Prioritise image width and allow vertical scrolling over further shrinking. */
+ .page-wrapper, .viewport-art, .page-block.viewport-art, body:has(.facts-sheet) .viewport-art { width: 100%; }
+ .layout-navigation { gap: 8px; }
+ .facts-footer { height: auto; min-height: 44px; flex-wrap: wrap; gap: 8px 16px; padding: 8px; }
+ .facts-footer .footer-detail { display: inline; font-size: 12px; }
+ .compact-brand > span { font-size: 16px; }
+}
+
+</style>
+<style id="full-width-layout">
+/* Artwork fills the content width; tall pages scroll without cropping. */
+html, body { width: 100%; min-width: 0; margin: 0; padding: 0; }
+.page-wrapper, .viewport-art, .page-block.viewport-art,
+body:has(.facts-sheet) .viewport-art {
+ width: 100%; max-width: none; height: auto; margin-inline: 0;
+}
+.page-wrapper img.bg, .viewport-art img, .page-block.viewport-art img.bg,
+.design-images .viewport-art img {
+ display: block; position: static; width: 100%; height: auto;
+ max-width: 100%; max-height: none;
+}
+/* Show the original image footer in full, without a second replacement footer. */
+.facts-content { aspect-ratio: auto; overflow: visible; }
+.facts-footer { display: none; }
+</style>
+<style id="sample-one-screen">
+html, body { height: 100%; overflow: hidden; background-color: rgb(254, 253, 248); }
+body > .sample-art.viewport-art {
+ width: min(100%, calc((100vh - 24px) * 1.7777777777777777));
+ width: min(100%, calc((100dvh - 24px) * 1.7777777777777777));
+ margin-inline: auto;
+}
+.sample-art > .layout-navigation {
+ position: absolute; top: 8px; left: 4px; z-index: 101;
+ max-width: calc(100% - 8px); padding: 0;
+}
+@media (max-width: 600px) {
+ .sample-art > .layout-navigation { top: 4px; }
+ .sample-art > .layout-navigation .back-btn { min-height: 0; padding: 2px 8px; font-size: 10px; line-height: 1.4; }
+}
+</style>
+<style id="standard-return-position">
+:root { --return-left: 40px; --return-top: 8px; }
+.page-wrapper > .layout-navigation, .sample-art > .layout-navigation {
+ position: fixed; top: var(--return-top); left: var(--return-left);
+ max-width: calc(100% - 80px); padding: 0; z-index: 101;
+}
+</style>
+</head><body><main class="sample-art viewport-art" style="--art-ratio: 1.7777777777777777"><img src="images/LP_sample.jpg" alt="HP・LP制作のLPサンプル一覧"><a class="sample-link sui" href="https://pidamgallery.github.io/lp-sample-sui/" target="_blank" rel="noopener noreferrer" aria-label="美容室Sui サンプルLP（別タブで開きます）"></a>
+<a class="sample-link kakurega" href="https://pidamgallery.github.io/lp-sample-kakurega/" target="_blank" rel="noopener noreferrer" aria-label="喫茶 隠れ家 サンプルLP（別タブで開きます）"></a>
+<a class="sample-link shinrou" href="https://pidamgallery.github.io/lp-sample-shinrou/" target="_blank" rel="noopener noreferrer" aria-label="神狼運輸 サンプルLP（別タブで開きます）"></a><div class="layout-navigation"><a class="back-btn" href="index.html">← トップページへ戻る</a></div></main>
+
+<script>
+(()=>{const nav=document.querySelector('.layout-navigation');
+ const measure=()=>{document.documentElement.style.setProperty('--layout-nav',Math.ceil(nav.getBoundingClientRect().height)+'px');
+ const facts=document.querySelector('.facts-footer');if(facts)document.documentElement.style.setProperty('--layout-facts',Math.ceil(facts.getBoundingClientRect().height)+'px');};
+ const observer=new ResizeObserver(measure);observer.observe(nav);const facts=document.querySelector('.facts-footer');if(facts)observer.observe(facts);measure();})();
+</script>
+</body></html>

@@ -3,48 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pidam Gallery</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; background: #0a0d1a; }
+  <title>Pidam Gallery｜AIアート・HP・LP制作・デザイン・AIサポート</title>
+  <meta name="description" content="幻想的なAIアートと、お店・個人事業のためのHP・LP制作、デザイン制作、AI活用サポート。Pidam Galleryが、想いを形にするお手伝いをします。">
+  
 
-    .page-wrapper {
-      position: relative;
-      width: 100%;
-    }
-    .page-wrapper img.bg {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
 
-    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
-    .btn-link {
-      position: absolute;
-      display: block;
-      cursor: pointer;
-      border-radius: 9999px;
-      /* デバッグ: background: rgba(255,0,0,0.3); */
-    }
-    .btn-link:hover { background: rgba(255,255,255,0.08); }
-
-    .btn-gallery { left: 11%; top: 48%; width: 25%; height: 7.5%; }
-    .btn-support { left: 11%; top: 63%; width: 25%; height: 7.5%; }
-    .btn-about   { left: 11%; top: 78%; width: 25%; height: 7.5%; }
-  </style>
+<style id="home-viewport-layout">
+* { box-sizing: border-box; }
+:root { color-scheme: dark; --home-background: #0a0d1a; --gold: #ddc791; }
+html { width: 100%; min-width: 0; margin: 0; padding: 0; scroll-behavior: auto; }
+body {
+ width: 100%; min-width: 0; margin: 0; padding: 0;
+ min-height: 100vh; min-height: 100dvh;
+ display: grid; justify-items: center; align-content: start;
+ background: var(--home-background);
+}
+/* The original file includes a 6px left capture edge and surplus top sky.
+   Reframe those edges to match the approved lower-scrolled reference.
+   The wolf, moon, title, six buttons and copyright remain inside the frame. */
+.page-wrapper {
+ position: relative; width: min(100%, calc(100vh * 1914 / 1000));
+ width: min(100%, calc(100dvh * 1914 / 1000));
+ aspect-ratio: 1914 / 1000; min-width: 0;
+ margin: 0; padding: 0; overflow: hidden; overflow: clip;
+ isolation: isolate;
+}
+.hero-canvas {
+ position: absolute; width: calc(100% * 1920 / 1914);
+ aspect-ratio: 1920 / 1080; left: calc(-100% * 6 / 1914); top: -8%;
+}
+.hero-canvas img.bg { display: block; width: 100%; height: auto; margin: 0; }
+.overlay { position: absolute; inset: 0; }
+.btn-link { position: absolute; display: block; cursor: pointer; border-radius: 9999px; }
+a.btn-link:hover { background: rgba(255,255,255,0.08); }
+a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.btn-gallery { left: 8.59375%; top: 49.53704%; width: 25.9375%; height: 7.96296%; }
+.btn-support { left: 8.59375%; top: 62.68519%; width: 25.9375%; height: 7.77778%; }
+.btn-about { left: 8.59375%; top: 75.83333%; width: 25.9375%; height: 7.77778%; }
+.btn-web, .btn-design, .btn-shop { left: 35.78125%; width: 25.9375%; height: 7.77778%; cursor: default; }
+.btn-web { top: 49.53704%; height: 7.96296%; cursor: pointer; }
+.btn-design { top: 62.68519%; cursor: pointer; }
+.btn-shop { top: 75.83333%; cursor: pointer; }
+/* Narrow or short windows keep their width; scrolling is allowed if needed.
+   Browser zoom is unrestricted and no artwork text is truncated. */
+@media (max-width: 767px), (max-height: 560px) {
+ .page-wrapper { width: 100%; }
+}
+</style>
 </head>
 <body>
 
-  <div class="page-wrapper">
-    <img class="bg" src="images/index.jpg" alt="Pidam Gallery">
+  <header class="page-wrapper" id="top">
+    <div class="hero-canvas">
+    <!-- Preserve the original artwork, baked-in text, and aspect ratio without editing. -->
+    <img class="bg" src="images/index.jpg" width="1920" height="1080" fetchpriority="high" alt="Pidam Gallery — AI × Art × Support。満月と星空の下にたたずむ狼。">
 
     <div class="overlay">
       <a class="btn-link btn-gallery" href="gallery.html" aria-label="作品を見る"></a>
-      <a class="btn-link btn-support" href="support.html" aria-label="AIサポートを見る"></a>
+      <a class="btn-link btn-support" href="support.html" aria-label="AI講座・サポート"></a>
       <a class="btn-link btn-about"   href="activity.html" aria-label="活動実績を見る"></a>
+      <a class="btn-link btn-web" href="lp-sample.html" aria-label="HP・LP制作"></a>
+      <a class="btn-link btn-design" href="design.html" aria-label="デザイン制作"></a>
+      <a class="btn-link btn-shop" href="shop.html" aria-label="ショップを見る"></a>
     </div>
-  </div>
+      </div>
+  </header>
+
+
 
 </body>
 </html>

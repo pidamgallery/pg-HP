@@ -1,149 +1,68 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Support | Pidam Gallery</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; background: #0a0d1a; }
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Support | Pidam Gallery</title>
 
-    .page-wrapper {
-      position: relative;
-      width: 100%;
-    }
-    .page-wrapper::before {
-      content: '';
-      display: block;
-      padding-top: 56.25%;
-    }
-    .page-wrapper img.bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-    }
 
-    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+<style id="support-single-screen">
+* { box-sizing: border-box; }
+html { width: 100%; min-width: 0; margin: 0; padding: 0; scroll-behavior: auto; }
+body {
+ width: 100%; min-width: 0; margin: 0; padding: 0;
+ min-height: 100vh; min-height: 100dvh; background: #0a0d1a;
+ display: grid; justify-items: center; align-content: start;
+}
+/* Remove only the captured browser strip above the original artwork.
+   Keep the title, crescent, three menus, QR, email and copyright intact. */
+.page-wrapper {
+ position: relative; width: min(100%, calc(100vh * 1920 / 1048));
+ width: min(100%, calc(100dvh * 1920 / 1048));
+ aspect-ratio: 1920 / 1048; margin: 0; padding: 0;
+ overflow: hidden; overflow: clip; isolation: isolate;
+}
+.support-canvas {
+ position: absolute; left: 0; top: calc(-100% * 32 / 1048);
+ width: 100%; aspect-ratio: 1920 / 1080;
+}
+.bg { display: block; width: 100%; height: auto; margin: 0; }
+.overlay { position: absolute; inset: 0; }
+.image-link { position: absolute; display: block; border-radius: 999px; }
+.image-link:hover { background: #ffffff0d; }
+a:focus-visible { outline: 3px solid #ddc791; outline-offset: 3px; }
+.service-link { left: 6.979167%; width: 36.666667%; height: 17.592593%; }
+.course { top: 32.037037%; } .individual { top: 52.129630%; } .companion { top: 71.944444%; }
+.btn-qr { position: absolute; display: block; left: 49.166667%; top: 79.259259%; width: 7.291667%; height: 12.962963%; border-radius: 6px; }
+/* The new readable control covers the partial button captured in the image. */
+.back-button {
+ position: absolute; left: 0; top: calc(100% * 16 / 1048); z-index: 3;
+ display: inline-flex; align-items: center; justify-content: center;
+ width: max(148px, calc(100% * 100 / 1920));
+ height: max(44px, calc(100% * 44 / 1048)); padding: 8px 16px;
+ border: 1px solid #c9a84c77; border-radius: 999px;
+ background: #0a0d1a; color: #ddc791; font: 14px/1.5 sans-serif;
+ text-decoration: none; white-space: nowrap;
+}
+.back-button:hover { background: #18213a; }
+@media (min-width: 768px) and (max-width: 1023px) {
+ .back-button { width: max(132px, calc(100% * 100 / 1920)); height: max(28px, calc(100% * 44 / 1048)); padding: 2px 10px; font-size: 12px; }
+}
+@media (max-width: 767px) {
+ .page-wrapper { width: 100%; }
+ .back-button { top: 0; width: max(110px, calc(100% * 100 / 1920)); height: 18px; padding: 1px 8px; font-size: 10px; line-height: 1.4; }
+}
+@media (max-height: 560px) and (min-width: 768px) {
+ .page-wrapper { width: 100%; }
+}
+</style>
+</head><body><main class="page-wrapper" id="contact">
+<a class="back-button" href="index.html" aria-label="トップページに戻る">← トップページに戻る</a>
+<div class="support-canvas">
+<img class="bg" src="images/support.jpg" alt="AI Support — AI初心者講座、はじめてのAIサポート、個別伴走サポート。LINEのQRコードと連絡先メール soyopin@kcn.jp。">
+<nav class="overlay" aria-label="AIサポートメニュー">
 
-    .btn-link {
-      position: absolute;
-      display: block;
-      cursor: pointer;
-      border-radius: 9999px;
-      /* デバッグ: background: rgba(255,0,0,0.3); */
-    }
-    .btn-link:hover { background: rgba(255,255,255,0.08); }
-
-    /* QRコードは角丸小さめ */
-    .btn-qr {
-      position: absolute;
-      display: block;
-      cursor: pointer;
-      border-radius: 6px;
-      /* デバッグ: background: rgba(255,0,0,0.3); */
-    }
-    .btn-qr:hover { background: rgba(255,255,255,0.08); }
-
-    .service-menu {
-      position: absolute;
-      left: 8.5%;
-      top: 25%;
-      z-index: 2;
-      width: 38%;
-      height: 65%;
-      padding: 1.1%;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6vw;
-      background: #051440;
-      border-radius: 1.3vw;
-    }
-    .service-menu a {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,0.92);
-      border-radius: 9999px;
-      text-align: center;
-      text-decoration: none;
-      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
-    }
-    .service-menu a:hover { background: rgba(255,255,255,0.1); }
-    .service-menu strong {
-      font-size: clamp(0.75rem, 1.55vw, 1.4rem);
-      font-weight: 500;
-      line-height: 1.15;
-    }
-    .service-menu span {
-      margin-top: 0.2em;
-      font-size: clamp(0.7rem, 1.15vw, 1rem);
-      line-height: 1.15;
-    }
-
-    /* ボタン位置 (%) */
-    .btn-qr { left: 51%; top: 74%; width: 7%; height: 13%; } /* QRコード */
-
-    /* トップへ戻る */
-    .back-btn {
-      position: fixed;
-      top: 1.2rem;
-      left: 1.2rem;
-      z-index: 100;
-      background: rgba(10,13,26,0.75);
-      border: 1px solid rgba(201,168,76,0.35);
-      color: #c9a84c;
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      padding: 0.45rem 1.1rem;
-      border-radius: 9999px;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      text-decoration: none;
-      font-family: sans-serif;
-      transition: background 0.3s;
-    }
-    .back-btn:hover { background: rgba(201,168,76,0.15); }
-  </style>
-</head>
-<body>
-
-  <a class="back-btn" href="index.html">← トップへ</a>
-
-  <div class="page-wrapper" id="contact">
-    <img class="bg" src="images/support.jpg" alt="AI Support - Pidam Gallery">
-
-    <div class="overlay">
-
-      <nav class="service-menu" aria-label="AIサポートメニュー">
-        <a href="beginner.html">
-          <strong>AI初心者講座</strong>
-          <span>複数人で基本を学ぶ</span>
-        </a>
-        <a href="beginner.html">
-          <strong>はじめてのAIサポート</strong>
-          <span>1対1で相談・練習</span>
-        </a>
-        <a href="company.html">
-          <strong>個別伴走サポート</strong>
-          <span>一緒に作って実装する</span>
-        </a>
-        <a href="other_support.html">
-          <strong>その他サポート</strong>
-          <span>画像・名刺・LPなどの制作相談</span>
-        </a>
-      </nav>
-
-      <!-- QRコード（LINE相談）: リンク先を href="" に入れる -->
-      <a class="btn-qr" href="" target="_blank" aria-label="LINE相談はこちら"></a>
-
-    </div>
-  </div>
-
-</body>
-</html>
+<a class="image-link service-link course" href="beginner.html" aria-label="AI初心者講座"></a>
+<a class="image-link service-link individual" href="beginner-support.html" aria-label="はじめてのAIサポート"></a>
+<a class="image-link service-link companion" href="company.html" aria-label="個別伴走サポート"></a>
+<!-- Existing QR link is preserved until its destination is confirmed. -->
+<a class="btn-qr" href="" target="_blank" aria-label="LINE相談はこちら"></a>
+</nav></div>
+</main>
+</body></html>

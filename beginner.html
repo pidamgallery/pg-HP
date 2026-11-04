@@ -1,65 +1,50 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI初心者講座・はじめてのAIサポート | Pidam Gallery</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; background: #0a0d1a; }
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI初心者講座 | Pidam Gallery</title>
 
-    .page-block {
-      position: relative;
-      width: 100%;
-    }
-    .page-block::before {
-      content: '';
-      display: block;
-      padding-top: 56.25%;
-    }
-    .page-block img.bg {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-    }
 
-    .back-btn {
-      position: fixed;
-      top: 1.2rem;
-      left: 1.2rem;
-      z-index: 100;
-      background: rgba(10,13,26,0.75);
-      border: 1px solid rgba(201,168,76,0.35);
-      color: #c9a84c;
-      font-size: 0.78rem;
-      letter-spacing: 0.15em;
-      padding: 0.45rem 1.1rem;
-      border-radius: 9999px;
-      cursor: pointer;
-      backdrop-filter: blur(6px);
-      text-decoration: none;
-      font-family: sans-serif;
-      transition: background 0.3s;
-    }
-    .back-btn:hover { background: rgba(201,168,76,0.15); }
-  </style>
-</head>
-<body>
 
-  <a class="back-btn" href="support.html">← 戻る</a>
 
-  <!-- 1枚目: beginner.jpg -->
-  <div class="page-block">
-    <img class="bg" src="images/beginner.jpg" alt="AI初心者講座とはじめてのAIサポート - Pidam Gallery">
-  </div>
 
-  <!-- 2枚目: beginner2.jpg -->
-  <div class="page-block">
-    <img class="bg" src="images/beginner2.jpg" alt="初心者向け講座 2 - Pidam Gallery">
-  </div>
 
-</body>
-</html>
+<style>
+*{box-sizing:border-box}
+html,body,main{width:100%;min-width:0;margin:0;padding:0}
+html{scroll-behavior:auto}
+body{background:#fff}
+/* Natural content height: no viewport-sized empty wrapper, image crop, or filler. */
+.viewport-art,.facts-content{display:block;width:100%;height:auto;min-height:0;margin:0;padding:0}
+.viewport-art img{display:block;width:100%;height:auto;max-width:100%;margin:0;padding:0}
+.layout-navigation{position:static;display:flex;flex-wrap:nowrap;align-items:stretch;gap:12px;width:100%;margin:0;padding:2px 40px}
+.return-row{display:contents}
+.back-btn{display:inline-flex;align-items:center;justify-content:center;min-width:0;min-height:44px;padding:10px 16px;border:1px solid #c9a84c77;border-radius:999px;background:#0a0d1a;color:#ddc791;font:14px/1.5 sans-serif;text-decoration:none;text-align:center;overflow-wrap:anywhere}
+.back-btn:focus-visible{outline:3px solid #80631f;outline-offset:1px}
+.back-btn:hover{background:#20253a}
+@media(max-width:600px){.layout-navigation{gap:8px;padding:2px 12px}.back-btn{flex:1 1 0}}
+</style>
+<style>
+/* PC preview: preserve proportions, trimming outer photo edges only. */
+@media(min-width:1100px) and (min-aspect-ratio:16/9) and (max-aspect-ratio:21/10){
+main>.viewport-art:first-child{height:100dvh;overflow:hidden}
+main>.viewport-art:first-child img{height:100%;object-fit:cover;object-position:center}
+}
+</style><style id="restore-second-page-navigation">
+/* Restore the second sheet's footer placement without touching the first sheet. */
+@media(min-width:1100px) and (min-aspect-ratio:16/9) and (max-aspect-ratio:21/10){
+.facts-sheet .facts-content{position:relative;min-height:100dvh;background:#cbe5f8}
+.facts-sheet .layout-navigation{position:absolute;left:40px;right:12px;bottom:8px;width:auto;margin:0;padding:0}
+}
+</style></head>
+<body id="page-top"><main aria-label="AI初心者講座">
+<div class="viewport-art"><img src="images/beginner-received-preview.png" alt="AI初心者講座のご案内"></div>
+<section id="course-facts" class="viewport-art facts-sheet" aria-label="最初に知っておきたい5つのこと">
+<div class="facts-content"><img src="images/beginner2-wide.png" alt="最初に知っておきたい5つのこと">
+<div class="layout-navigation"><nav class="return-row" aria-label="AI Supportへの移動"><a class="back-btn" href="support.html">← AI Supportへ戻る</a></nav>
+<nav class="return-row" aria-label="ページ内の移動"><a class="back-btn to-top" href="#page-top">↑ このページの先頭へ</a></nav></div>
+</div>
+
+
+</section></main>
+
+
+
+</body></html>

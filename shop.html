@@ -1,51 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shop | Pidam Gallery</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; background: #0a0d1a; }
-    .page-wrapper { position: relative; width: 100%; }
-    .page-wrapper::before { content: ''; display: block; padding-top: 56.25%; }
-    .page-wrapper img.bg {
-      position: absolute; top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: contain; object-position: center; display: block;
+    * { box-sizing: border-box; }
+    html, body { width: 100%; min-width: 0; margin: 0; padding: 0; background: #0a0d1a; }
+    .shop-sheet { position: relative; width: 100%; margin: 0; }
+    .shop-sheet img { display: block; width: 100%; height: auto; }
+    .layout-navigation {
+      position: absolute; top: 8px; left: 40px; z-index: 2;
+      display: flex; flex-wrap: nowrap; align-items: center; gap: 12px;
+      max-width: calc(100% - 48px);
     }
-    .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    .btn-link {
-      position: absolute; display: block; cursor: pointer; border-radius: 9999px;
-      /* デバッグ: background: rgba(255,0,0,0.3); */
-    }
-    .btn-link:hover { background: rgba(255,255,255,0.1); }
-    /* BOOTHを見る  */
-    .btn-booth   { left: 11%; top: 36%; width: 18%; height: 7%; }
-    /* メルカリを見る */
-    .btn-mercari { left: 11%; top: 64%; width: 18%; height: 7%; }
     .back-btn {
-      position: fixed; top: 1.2rem; left: 1.2rem; z-index: 100;
-      background: rgba(10,13,26,0.75);
-      border: 1px solid rgba(201,168,76,0.35); color: #c9a84c;
-      font-size: 0.78rem; letter-spacing: 0.15em;
-      padding: 0.45rem 1.1rem; border-radius: 9999px;
-      cursor: pointer; backdrop-filter: blur(6px);
-      text-decoration: none; font-family: sans-serif; transition: background 0.3s;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: 10px 16px;
+      border: 1px solid #c9a84c77; border-radius: 999px;
+      background: #0a0d1a; color: #ddc791;
+      font: 14px/1.5 sans-serif; text-decoration: none; white-space: nowrap;
     }
-    .back-btn:hover { background: rgba(201,168,76,0.15); }
+    .back-btn:hover { background: #c9a84c15; }
+    .shop-link { position: absolute; display: block; border-radius: 999px; }
+    .shop-link:hover { background: rgba(255,255,255,.1); }
+    /* Coordinates follow the original 1920 x 1000 image at every display size. */
+    .btn-booth { left: 12.5%; top: 42.2%; width: 17.916667%; height: 6.5%; }
+    .btn-mercari { left: 12.5%; top: 72.4%; width: 17.916667%; height: 6.3%; }
+    a:focus-visible { outline: 3px solid #ddc791; outline-offset: 2px; }
+    @media (max-width: 600px) {
+      .layout-navigation { gap: 8px; }
+      .back-btn { min-height: 0; padding: 2px 8px; font-size: 10px; line-height: 1.4; }
+    }
   </style>
 </head>
 <body>
-  <a class="back-btn" href="activity.html">← 戻る</a>
-  <div class="page-wrapper">
-    <img class="bg" src="images/Shop.jpg" alt="Shop - Pidam Gallery">
-    <div class="overlay">
-      <!-- BOOTHを見る: href="" にBOOTHのURLを入れる -->
-      <a class="btn-link btn-booth"   href="https://pidam-gallery.booth.pm/" target="_blank" aria-label="BOOTHを見る"></a>
-      <!-- メルカリを見る: href="" にメルカリのURLを入れる -->
-      <a class="btn-link btn-mercari" href="https://jp.mercari.com/user/profile/968855455" target="_blank" aria-label="メルカリを見る"></a>
-    </div>
-  </div>
+  <main class="shop-sheet" aria-label="作品販売 Shop">
+    <img src="images/shop.jpg" width="1920" height="1000" alt="Shop。BOOTHでは幻想アート・神獣作品・音楽のデータ販売。メルカリでは現物作品の販売・新作掲載。">
+    <nav class="layout-navigation" aria-label="ページ移動">
+      <a class="back-btn" href="index.html">← トップページに戻る</a>
+      <a class="back-btn" href="activity.html">← 活動内容一覧に戻る</a>
+    </nav>
+    <a class="shop-link btn-booth" href="https://pidam-gallery.booth.pm/" target="_blank" rel="noopener noreferrer" aria-label="BOOTHを見る（新しいタブで開く）"></a>
+    <a class="shop-link btn-mercari" href="https://jp.mercari.com/user/profile/968855455" target="_blank" rel="noopener noreferrer" aria-label="メルカリを見る（新しいタブで開く）"></a>
+  </main>
 </body>
 </html>
