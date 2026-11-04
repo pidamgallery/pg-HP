@@ -50,6 +50,21 @@ main > .viewport-art:first-child img {width:auto; height:auto; max-width:100%; m
 .facts-sheet .back-btn {padding:3px 8px;}
 }
 </style>
+<style id="mobile-landscape-matching-width">
+/* Both originals are 2:1. Use the same height budget, including the
+   second sheet's navigation, so their edges stay aligned while scrolling. */
+@media (max-width: 767px) and (orientation: landscape),
+       (max-width: 1100px) and (pointer: coarse) and (orientation: landscape) {
+ main { --course-image-width: min(100%, calc((100svh - 40px) * 2)); }
+ main > .viewport-art:first-child { justify-content: flex-end; }
+ main > .viewport-art:first-child img,
+ .facts-sheet img {
+  width: var(--course-image-width); height: auto;
+  max-width: 100%; max-height: none; margin: 0 auto;
+ }
+ main > .facts-sheet { justify-content: flex-start; }
+}
+</style>
 </head>
 <body id="page-top"><main aria-label="AI初心者講座">
 <div class="viewport-art"><img src="images/beginner-received-preview.png" alt="AI初心者講座のご案内"></div>
